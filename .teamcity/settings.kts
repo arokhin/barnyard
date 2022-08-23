@@ -10,6 +10,7 @@ project {
 
     buildType(Router)
     buildType(DockerRouter)
+    buildType(RouterDepoy)
 }
 
 object Router : BuildType({
@@ -23,7 +24,7 @@ object Router : BuildType({
             name = "show file structure"
             scriptContent = """
                 bash pwd
-                ls ./
+                bash ls ./
             """.trimIndent()
 
         }

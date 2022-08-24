@@ -23,8 +23,8 @@ object Router : BuildType({
         script {
             name = "show file structure"
             scriptContent = """
-                pwd
-                ls ./
+                echo `pwd`
+                echo `ls ./`
             """.trimIndent()
 
         }

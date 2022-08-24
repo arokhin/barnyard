@@ -46,6 +46,7 @@ object DockerRouter : BuildType({
 
     triggers {
         vcs {
+
         }
     }
 })
@@ -54,6 +55,12 @@ object RouterDepoy : BuildType ({
     name = "Router Deploy"
     vcs {
         root(DslContext.settingsRoot)
+
+    }
+    triggers {
+        vcs {
+
+        }
 
     }
 })

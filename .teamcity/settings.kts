@@ -23,8 +23,8 @@ object Router : BuildType({
         script {
             name = "show file structure"
             scriptContent = """
-                bash pwd
-                bash ls ./
+                pwd
+                ls ./
             """.trimIndent()
 
         }

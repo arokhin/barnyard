@@ -11,6 +11,7 @@ project {
     buildType(Router)
     buildType(DockerRouter)
     buildType(RouterDepoy)
+    buildType(DeployServer)
 }
 
 object Router : BuildType({
@@ -43,7 +44,11 @@ object DockerRouter : BuildType({
     vcs {
         root(DslContext.settingsRoot, "+:DockerRouter")
     }
+    dependencies {
+        dependency(Router) {
 
+        }
+    }
     triggers {
         vcs {
 
@@ -59,6 +64,9 @@ object RouterDepoy : BuildType ({
             "+:DockerRouter",
             "+:Deploy"
         )
+    }
+    dependencies {
+        dependency(DockerRouter) {}
 
     }
     triggers {
@@ -67,4 +75,17 @@ object RouterDepoy : BuildType ({
         }
 
     }
+})
+
+object DeployServer : BuildType ({
+    name = "Deploy server"
+    vcs {
+        root(DslContext.settingsRoot, "+:Deployment")
+
+    }
+    dependencies {
+        snapshot(RouterDepoy){
+        }
+    }
+
 })

@@ -28,6 +28,7 @@ object DockerRouter : BuildType({
     }
     dependencies {
         snapshot(Router) {
+            reuseBuilds - ReuseBuilds.SUCCESSFUL
         }
     }
     triggers {

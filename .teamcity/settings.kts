@@ -45,7 +45,7 @@ object DockerRouter : BuildType({
         root(DslContext.settingsRoot, "+:DockerRouter")
     }
     dependencies {
-        dependency(Router) {
+        snapshot(Router) {
 
         }
     }
@@ -66,8 +66,9 @@ object RouterDepoy : BuildType ({
         )
     }
     dependencies {
-        dependency(DockerRouter) {}
+        snapshot(DockerRouter) {
 
+        }
     }
     triggers {
         vcs {
